@@ -53,8 +53,8 @@
 		};
 
 		combo_studio_unlock: combo_studio_unlock {
-			timeout-ms = <150>;
-			key-positions = <0 1>;
+			timeout-ms = <300>;
+			key-positions = <8 9>;
 			bindings = <&studio_unlock>;
 		};
 	};
