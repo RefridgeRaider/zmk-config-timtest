@@ -5,8 +5,8 @@ maintainers:
 features:
   - keys
 matrix:
-  rows: 3
-  cols: 4
+  rows: 2
+  cols: 5
   diode_direction: COL2ROW
 microcontroller: nrf52840
 board: nice_nano_v2
