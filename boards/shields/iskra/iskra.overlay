@@ -63,6 +63,7 @@
 			input-code = <INPUT_REL_Y>;
 		};
 	};
+	
 };
 
 &adc {
