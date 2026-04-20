@@ -42,10 +42,10 @@
 		sampling-hz = <100>;
 
 		x-ch {
-			io-channels = <&adc 7>;   /* P0.29 */
-			mv-mid = <3000>;
-			mv-min-max = <3000>;
-			mv-deadzone = <1000>;
+			io-channels = <&adc 7>;
+			mv-mid = <3800>;
+			mv-min-max = <3800>;
+			mv-deadzone = <600>;
 			scale-multiplier = <1>;
 			scale-divisor = <500>;
 			evt-type = <INPUT_EV_REL>;
@@ -53,10 +53,10 @@
 		};
 
 		y-ch {
-			io-channels = <&adc 2>;   /* P0.04 */
-			mv-mid = <3000>;
-			mv-min-max = <3000>;
-			mv-deadzone = <1000>;
+			io-channels = <&adc 2>;
+			mv-mid = <3800>;
+			mv-min-max = <3800>;
+			mv-deadzone = <600>;
 			scale-multiplier = <1>;
 			scale-divisor = <500>;
 			evt-type = <INPUT_EV_REL>;
