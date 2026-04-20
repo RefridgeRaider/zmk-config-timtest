@@ -1,10 +1,6 @@
-/*
- * Iskra shield overlay
- * 2 rows x 5 columns = 10 keys
- */
-
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
 	chosen {
@@ -38,21 +34,33 @@
 		     , <&key_physical_attrs 100 100 200 100 0 1 2>
 		     , <&key_physical_attrs 100 100 300 100 0 1 3>
 		     , <&key_physical_attrs 100 100 400 100 0 1 4>;
+
 	};
 
-	analog_stick: analog_stick {
+	anin0: analog_input_0 {
 		compatible = "zmk,analog-input";
-		#address-cells = <1>;
-		#size-cells = <0>;
+		sampling-hz = <100>;
 
-		x_ch: channel@0 {
-			reg = <0>;
-			io-channels = <&adc 7>; /* P0.29 */
+		x-ch {
+			io-channels = <&adc 7>;   /* P0.29 */
+			mv-mid = <1630>;
+			mv-min-max = <1600>;
+			mv-deadzone = <10>;
+			scale-multiplier = <1>;
+			scale-divisor = <70>;
+			evt-type = <INPUT_EV_REL>;
+			input-code = <INPUT_REL_X>;
 		};
 
-		y_ch: channel@1 {
-			reg = <1>;
-			io-channels = <&adc 2>; /* P0.04 */
+		y-ch {
+			io-channels = <&adc 2>;   /* P0.04 */
+			mv-mid = <1630>;
+			mv-min-max = <1600>;
+			mv-deadzone = <10>;
+			scale-multiplier = <1>;
+			scale-divisor = <70>;
+			evt-type = <INPUT_EV_REL>;
+			input-code = <INPUT_REL_Y>;
 		};
 	};
 };
@@ -74,7 +82,7 @@
 
 		col-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>,
 			    <&gpio1 13 GPIO_ACTIVE_LOW>,
-			    <&gpio1 11 GPIO_ACTIVE_LOW>,
+			    <&gpio0 11 GPIO_ACTIVE_LOW>,
 			    <&gpio0 10 GPIO_ACTIVE_LOW>,
 			    <&gpio0 31 GPIO_ACTIVE_LOW>;
 	};
