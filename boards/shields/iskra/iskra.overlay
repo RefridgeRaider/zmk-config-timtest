@@ -63,6 +63,11 @@
 			input-code = <INPUT_REL_Y>;
 		};
 	};
+
+	input_listener_analog {
+		compatible = "zmk,input-listener";
+		device = <&anin0>;
+	};
 	
 };
 
